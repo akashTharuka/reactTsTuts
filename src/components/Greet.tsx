@@ -7,15 +7,18 @@ type GreetProps = {
     name: string
     msgCount: number
     isLoggedIn: boolean
+    optionalProp?: number
 }
 
 const Greet = (props: GreetProps) => {
+    const { optionalProp = 0 } = props;
     return (
         <div>
             {
                 props.isLoggedIn ? 
                     <>
                         <p>{props.name}, You have {props.msgCount} unread messages</p>
+                        <p>This is an optional prop of type number - value = {optionalProp}</p>
                     </>
                 : <p>user not logged in</p>
             }
